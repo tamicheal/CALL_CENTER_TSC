@@ -1,0 +1,7 @@
+
+--NEED TO FIND JOB TITLES-- FIRST I QUERY THE DATA IN LOOK FOR CALL DATA--
+SELECT DISTINCT [JobTitle]
+  FROM [AdventureWorks2016].[HumanResources].[Employee]
+  --IN SEARCH OF THE MANAGER OF CALLS CENTER IS ONE EXIST--
+  --NO CALL LOGS FOUND YET--
+  WHERE JobTitle LIKE '%Manager%'; --searching using like to filter managers need that list for next steps--
