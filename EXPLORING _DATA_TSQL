@@ -1,0 +1,55 @@
+"C:\AdventureWorks2016_EXT.bak"
+WILL BE RESTORING THIS DATABASE I MOVED IT TO THE C DRIVE
+
+USE [master]
+RESTORE DATABASE [AdventureWorks2016_EXT] FROM  DISK = N'C:\AdventureWorks2016_EXT.bak' WITH  FILE = 1,  MOVE N'AdventureWorks2016_EXT_Data' TO N'C:\Users\User\OneDrive\Desktop\MSSQL16.SQLEXPRESS\MSSQL\DATA\AdventureWorks2016_EXT_Data.mdf',  MOVE N'AdventureWorks2016_EXT_Log' TO N'C:\Users\User\OneDrive\Desktop\MSSQL16.SQLEXPRESS\MSSQL\DATA\AdventureWorks2016_EXT_Log.ldf',  MOVE N'AdventureWorks2016_EXT_mod' TO N'C:\Users\User\OneDrive\Desktop\MSSQL16.SQLEXPRESS\MSSQL\DATA\AdventureWorks2016_EXT_mod',  NOUNLOAD,  STATS = 5
+
+GO
+
+SELECT DISTINCT [ContactTypeID]
+  FROM [AdventureWorks2016_EXT].[Person].[BusinessEntityContact]; 
+  --FOUND SOMETHING ON CONTACT SO LOOKING FOR RELATIONSHIPS IN THE CONTACT DATA--
+ContactTypeID
+2
+11
+14
+15
+17
+18
+19
+
+/****** Script for SelectTopNRows command from SSMS  ******/
+SELECT TOP (1000) [ContactTypeID]
+      ,[Name]
+      ,[ModifiedDate]
+  FROM [AdventureWorks2016_EXT].[Person].[ContactType];
+
+OUTPUT-
+
+ContactTypeID	Name	ModifiedDate
+1	Accounting Manager	2008-04-30 00:00:00.000
+2	Assistant Sales Agent	2008-04-30 00:00:00.000
+3	Assistant Sales Representative	2008-04-30 00:00:00.000
+4	Coordinator Foreign Markets	2008-04-30 00:00:00.000
+5	Export Administrator	2008-04-30 00:00:00.000
+6	International Marketing Manager	2008-04-30 00:00:00.000
+7	Marketing Assistant	2008-04-30 00:00:00.000
+8	Marketing Manager	2008-04-30 00:00:00.000
+9	Marketing Representative	2008-04-30 00:00:00.000
+10	Order Administrator	2008-04-30 00:00:00.000
+11	Owner	2008-04-30 00:00:00.000
+12	Owner/Marketing Assistant	2008-04-30 00:00:00.000
+13	Product Manager	2008-04-30 00:00:00.000
+14	Purchasing Agent	2008-04-30 00:00:00.000
+15	Purchasing Manager	2008-04-30 00:00:00.000
+16	Regional Account Representative	2008-04-30 00:00:00.000
+17	Sales Agent	2008-04-30 00:00:00.000
+18	Sales Associate	2008-04-30 00:00:00.000
+19	Sales Manager	2008-04-30 00:00:00.000
+20	Sales Representative	2008-04-30 00:00:00.000
+
+FINDING MOVING TABLES TO ERD-- 
+
+--I AM NOT TYPING OUT MOST SQL STATEMENTS I AM USING QUICK QUERY TO CHECK THE TABLES QUICKLY--
+
+--THIS IS JUST MY METHOD FOR NOW--
