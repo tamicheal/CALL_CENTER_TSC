@@ -53,3 +53,80 @@ FINDING MOVING TABLES TO ERD--
 --I AM NOT TYPING OUT MOST SQL STATEMENTS I AM USING QUICK QUERY TO CHECK THE TABLES QUICKLY--
 
 --THIS IS JUST MY METHOD FOR NOW--
+
+### TROUBLESHOOTING ERROR 
+
+/*WHEN GOING TO DATABASE DIAGRAMS I GOT IN ERROR, NEED TO CLAIM THIS DB AND THIS WILL CLEAR*/
+
+
+FIX CODE LINE-[ALTER AUTHORIZATION ON DATABASE:: DBName TO [NewLogin]]
+===================================
+
+Cannot execute as the database principal because the principal "dbo" does not exist, this type of principal cannot be impersonated, or you do not have permission. (Framework Microsoft SqlClient Data Provider)
+
+------------------------------
+For help, click: https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-15517-database-engine-error
+
+------------------------------
+Server Name: SEEERT\SQLEXPRESS
+Error Number: 15517
+Severity: 16
+State: 1
+Line Number: 1
+
+
+------------------------------
+Program Location:
+
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at Microsoft.SqlServer.Management.UI.VSIntegration.Editors.DatabaseDiagramSupport.InstallSupportObjects(SqlConnectionInfoWithConnection connectionInfo, Urn databaseUrn)
+
+
+Server[@Name='seeert\SQLEXPRESS']/Database[@Name='AdventureWorks2016_EXT']/DatabaseDiagram[@Name='Diagram_1' and @OwnerID='1']
+
+fixed--
+
+NEXT STEP CODE 
+/****** Script for SelectTopNRows command from SSMS  ******/
+SELECT TOP (1000) [BusinessEntityID]
+      ,[Title]
+      ,[FirstName]
+      ,[MiddleName]
+      ,[LastName]
+      ,[Suffix]
+      ,[Shift]
+      ,[Department]
+      ,[GroupName]
+      ,[StartDate]
+      ,[EndDate]
+  FROM [AdventureWorks2016_EXT].[HumanResources].[vEmployeeDepartmentHistory]
+  WHERE Department LIKE '%Sales%';
+
+--THIS OUTPUT SALES TEAM, THEY MAKE CUSTOMER CONTACT QUSETION WHO IS THE MANAGER UNKNOWN YET--
+BusinessEntityID	Title	FirstName	MiddleName	LastName	Suffix	Shift	Department	GroupName	StartDate	EndDate
+273	Mr.	Brian	S	Welcker	NULL	Day	Sales	Sales and Marketing	2011-02-15	NULL
+274	NULL	Stephen	Y	Jiang	NULL	Day	Sales	Sales and Marketing	2011-01-04	NULL
+275	NULL	Michael	G	Blythe	NULL	Day	Sales	Sales and Marketing	2011-05-31	NULL
+276	NULL	Linda	C	Mitchell	NULL	Day	Sales	Sales and Marketing	2011-05-31	NULL
+277	NULL	Jillian	NULL	Carson	NULL	Day	Sales	Sales and Marketing	2011-05-31	NULL
+278	NULL	Garrett	R	Vargas	NULL	Day	Sales	Sales and Marketing	2011-05-31	NULL
+279	NULL	Tsvi	Michael	Reiter	NULL	Day	Sales	Sales and Marketing	2011-05-31	NULL
+280	NULL	Pamela	O	Ansman-Wolfe	NULL	Day	Sales	Sales and Marketing	2011-05-31	NULL
+281	NULL	Shu	K	Ito	NULL	Day	Sales	Sales and Marketing	2011-05-31	NULL
+282	NULL	José	Edvaldo	Saraiva	NULL	Day	Sales	Sales and Marketing	2011-05-31	NULL
+283	NULL	David	R	Campbell	NULL	Day	Sales	Sales and Marketing	2011-05-31	NULL
+284	Mr.	Tete	A	Mensa-Annan	NULL	Day	Sales	Sales and Marketing	2012-09-30	NULL
+285	Mr.	Syed	E	Abbas	NULL	Day	Sales	Sales and Marketing	2013-03-14	NULL
+286	NULL	Lynn	N	Tsoflias	NULL	Day	Sales	Sales and Marketing	2013-05-30	NULL
+287	NULL	Amy	E	Alberts	NULL	Day	Sales	Sales and Marketing	2012-04-16	NULL
+288	NULL	Rachel	B	Valdez	NULL	Day	Sales	Sales and Marketing	2013-05-30	NULL
+289	NULL	Jae	B	Pak	NULL	Day	Sales	Sales and Marketing	2012-05-30	NULL
+290	NULL	Ranjit	R	Varkey Chudukatil	NULL	Day	Sales	Sales and Marketing	2012-05-30	NULL;
+
+--NEXT LOOK MANAGER EASY TASK TO DO I BELIEVE I'LL POST THAT QUERY SHORTLY---
