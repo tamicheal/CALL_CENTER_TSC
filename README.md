@@ -55,38 +55,6 @@ WHAT DATA IS NEEDED I'LL CHECK USING MSSQL TO PROCESS THE INFORMATION AND ADD NO
 
 DO WE HAVE TOTAL CALL VOLUME?
 
---NEED TO FIND JOB TITLES-- FIRST I QUERY THE DATA IN LOOK FOR CALL DATA--
-SELECT DISTINCT [JobTitle]
-  FROM [AdventureWorks2016].[HumanResources].[Employee];
-
-
--NEED TO FIND JOB TITLES-- FIRST I QUERY THE DATA IN LOOK FOR CALL DATA--
-SELECT DISTINCT [JobTitle]
-  FROM [AdventureWorks2016].[HumanResources].[Employee]
-  --IN SEARCH OF THE MANAGER OF CALLS CENTER IS ONE EXIST--
-  --NO CALL LOGS FOUND YET--
-  WHERE JobTitle LIKE '%Manager%'; --searching using like to filter managers need that list for next steps--
-
-OUTPUT
-Accounts Manager
-Document Control Manager
-Engineering Manager
-European Sales Manager
-Facilities Manager
-Finance Manager
-Human Resources Manager
-Information Services Manager
-Marketing Manager
-Network Manager
-North American Sales Manager
-Pacific Sales Manager
-Production Control Manager
-Purchasing Manager
-Quality Assurance Manager
-Research and Development Manager
-\/****** Script for SelectTopNRows command from SSMS  ******/
-SELECT DISTINCT [TransactionType]
-  FROM [AdventureWorks2016].[Production].[TransactionHistoryArchive];
 
 ---HAD TO STOP NOTICED THAT I MAYBE MISSING PART OF DATA AND WILL NEED TO ADD ANOTHER DATABASE FROM THE SITE.
 
