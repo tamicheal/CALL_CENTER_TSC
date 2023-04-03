@@ -45,3 +45,49 @@ WHERE- LOOKING IN TO HEIARCHY OF LOCATION AND POSTIONS
 WENT TO STUDY ON CALL METRICS TSA,FCR,CVT
 
 --NEXT STEPS WILL BE DECIDING WHAT DATA TO USE AND CREATE ER DIAGRAM THIS IS THE ETL STEP FOR ME ILL CREATE SEVERAL QUERIES AND VIEWS IF NEEDED--
+
+### EXTRACTING DATASET I MAY NEED,
+TO KEEP THINGS SIMPLE I WILL ASKING THE FOLLOWING QUESTIONS OF THE DATA
+
+FOR CVT I NEED THE TOTAL AMOUNT OF CALLS?
+
+WHAT DATA IS NEEDED I'LL CHECK USING MSSQL TO PROCESS THE INFORMATION AND ADD NOTES AND DATA AS BUILD OUT 
+
+DO WE HAVE TOTAL CALL VOLUME?
+
+--NEED TO FIND JOB TITLES-- FIRST I QUERY THE DATA IN LOOK FOR CALL DATA--
+SELECT DISTINCT [JobTitle]
+  FROM [AdventureWorks2016].[HumanResources].[Employee];
+
+
+-NEED TO FIND JOB TITLES-- FIRST I QUERY THE DATA IN LOOK FOR CALL DATA--
+SELECT DISTINCT [JobTitle]
+  FROM [AdventureWorks2016].[HumanResources].[Employee]
+  --IN SEARCH OF THE MANAGER OF CALLS CENTER IS ONE EXIST--
+  --NO CALL LOGS FOUND YET--
+  WHERE JobTitle LIKE '%Manager%'; --searching using like to filter managers need that list for next steps--
+
+OUTPUT
+Accounts Manager
+Document Control Manager
+Engineering Manager
+European Sales Manager
+Facilities Manager
+Finance Manager
+Human Resources Manager
+Information Services Manager
+Marketing Manager
+Network Manager
+North American Sales Manager
+Pacific Sales Manager
+Production Control Manager
+Purchasing Manager
+Quality Assurance Manager
+Research and Development Manager
+\/****** Script for SelectTopNRows command from SSMS  ******/
+SELECT DISTINCT [TransactionType]
+  FROM [AdventureWorks2016].[Production].[TransactionHistoryArchive];
+
+HAD TO STOP NOTICED THAT I MAYBE MISSING PART OF DATA AND WILL NEED TO ADD ANOTHER DATABASE FROM THE SITE.
+
+CURRENTLY WAS EXPLORING THE DATA FOR MORE DETAILS
