@@ -129,7 +129,7 @@ BusinessEntityID	Title	FirstName	MiddleName	LastName	Suffix	Shift	Department	Gro
 289	NULL	Jae	B	Pak	NULL	Day	Sales	Sales and Marketing	2012-05-30	NULL
 290	NULL	Ranjit	R	Varkey Chudukatil	NULL	Day	Sales	Sales and Marketing	2012-05-30	NULL;
 
---NEXT LOOK MANAGER EASY TASK TO DO I BELIEVE I'LL POST THAT QUERY SHORTLY---
+--NEXT LOOK FOR MANAGER EASY TASK TO DO I BELIEVE I'LL POST THAT QUERY SHORTLY---
 FOUND THERE WHERE THERE MANAGER NEED TO BREAKDOWN GRAIN TO REGION SQL AND OUTPUT BELOW
 
 /****** Script for SelectTopNRows command from SSMS  ******/
