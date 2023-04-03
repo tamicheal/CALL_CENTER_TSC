@@ -130,3 +130,27 @@ BusinessEntityID	Title	FirstName	MiddleName	LastName	Suffix	Shift	Department	Gro
 290	NULL	Ranjit	R	Varkey Chudukatil	NULL	Day	Sales	Sales and Marketing	2012-05-30	NULL;
 
 --NEXT LOOK MANAGER EASY TASK TO DO I BELIEVE I'LL POST THAT QUERY SHORTLY---
+FOUND THERE WHERE THERE MANAGER NEED TO BREAKDOWN GRAIN TO REGION SQL AND OUTPUT BELOW
+
+/****** Script for SelectTopNRows command from SSMS  ******/
+SELECT TOP (1000) [BusinessEntityID]
+      ,[Title]
+      ,[FirstName]
+      ,[MiddleName]
+      ,[LastName]
+      ,[Suffix]
+      ,[JobTitle]
+      ,[Department]
+      ,[GroupName]
+      ,[StartDate]
+  FROM [AdventureWorks2016_EXT].[HumanResources].[vEmployeeDepartment]
+  WHERE JobTitle LIKE '%Manager%'
+  AND Department = 'Sales';
+BusinessEntityID	Title	FirstName	MiddleName	LastName	Suffix	JobTitle	Department	GroupName	StartDate
+274	NULL	Stephen	Y	Jiang	NULL	North American Sales Manager	Sales	Sales and Marketing	2011-01-04
+285	Mr.	Syed	E	Abbas	NULL	Pacific Sales Manager	Sales	Sales and Marketing	2013-03-14
+287	NULL	Amy	E	Alberts	NULL	European Sales Manager	Sales	Sales and Marketing	2012-04-16
+
+--SALE DATA MAY NOT BE THE RIGHT DATA TO FOR THE GOAL I AM LOOKING FOR I MAY HAVE TO SWTICH--
+
+THE ONLY DATA CONTACT BASE I FOUND WAS FOR SALES SO FAR--- 
