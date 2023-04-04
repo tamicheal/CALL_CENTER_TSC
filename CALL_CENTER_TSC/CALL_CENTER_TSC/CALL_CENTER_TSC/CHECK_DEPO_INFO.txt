@@ -1,0 +1,6 @@
+
+SELECT TOP (1000) [DepartmentID]
+      ,[Name]
+      ,[GroupName]
+      ,[ModifiedDate]
+  FROM [AdventureWorks2016].[HumanResources].[Department]
