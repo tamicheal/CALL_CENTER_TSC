@@ -31,3 +31,60 @@ Research and Development Manager
 \/****** Script for SelectTopNRows command from SSMS  ******/
 SELECT DISTINCT [TransactionType]
   FROM [AdventureWorks2016].[Production].[TransactionHistoryArchive];
+  
+  --CODING UPDATE BUILDING OUT SOMETHING FROM STRACH--
+--WRITTIEN OUT QUERY TO GRAB AND JOIN TABLES START POINT IS HERE AFTER SOME TROUBLESHOOTING--
+SELECT [Sales].[SalesPerson].BusinessEntityID
+	  ,[Person].[Person].[FirstName]
+	  ,[Person].[Person].[LastName]
+      ,[TerritoryID]
+      ,[SalesQuota]
+      ,[Bonus]
+      ,[CommissionPct]
+      ,[SalesYTD]
+      ,[SalesLastYear]
+  FROM [AdventureWorks2016_EXT].[Sales].[SalesPerson] 
+  INNER JOIN [AdventureWorks2016_EXT].[Person].[Person] 
+  ON [Sales].[SalesPerson].BusinessEntityID = [Person].[Person].BusinessEntityID;
+  ---LOOKING TO INCLUDE JOB TITLES FROM A DIFFERENT TABLE HRR [HumanResources].[Employee] INNER JOIN AND THAN MANAGERS ON A FULL JOIN NEXT BREAK --
+BusinessEntityID	BusinessEntityID	FirstName	LastName	TerritoryID	SalesQuota	Bonus	CommissionPct	SalesYTD	SalesLastYear
+274	274	Stephen	Jiang	NULL	NULL	0.00	0.00	559697.5639	0.00
+275	275	Michael	Blythe	2	300000.00	4100.00	0.012	3763178.1787	1750406.4785
+276	276	Linda	Mitchell	4	250000.00	2000.00	0.015	4251368.5497	1439156.0291
+277	277	Jillian	Carson	3	250000.00	2500.00	0.015	3189418.3662	1997186.2037
+278	278	Garrett	Vargas	6	250000.00	500.00	0.01	1453719.4653	1620276.8966
+279	279	Tsvi	Reiter	5	300000.00	6700.00	0.01	2315185.611	1849640.9418
+280	280	Pamela	Ansman-Wolfe	1	250000.00	5000.00	0.01	1352577.1325	1927059.178
+281	281	Shu	Ito	4	250000.00	3550.00	0.01	2458535.6169	2073505.9999
+282	282	José	Saraiva	6	250000.00	5000.00	0.015	2604540.7172	2038234.6549
+283	283	David	Campbell	1	250000.00	3500.00	0.012	1573012.9383	1371635.3158
+284	284	Tete	Mensa-Annan	1	300000.00	3900.00	0.019	1576562.1966	0.00
+285	285	Syed	Abbas	NULL	NULL	0.00	0.00	172524.4512	0.00
+286	286	Lynn	Tsoflias	9	250000.00	5650.00	0.018	1421810.9242	2278548.9776
+287	287	Amy	Alberts	NULL	NULL	0.00	0.00	519905.932	0.00
+288	288	Rachel	Valdez	8	250000.00	75.00	0.018	1827066.7118	1307949.7917
+289	289	Jae	Pak	10	250000.00	5150.00	0.02	4116871.2277	1635823.3967
+290	290	Ranjit	Varkey Chudukatil	7	250000.00	985.00	0.016	3121616.3202	2396539.7601-- 
+
+UPDATE TO RECORDS NEEDED
+
+BusinessEntityID	FirstName	LastName	TerritoryID	SalesQuota	Bonus	CommissionPct	SalesYTD	SalesLastYear	JobTitle
+285	Syed	Abbas	NULL	NULL	0.00	0.00	172524.4512	0.00	Pacific Sales Manager
+287	Amy	Alberts	NULL	NULL	0.00	0.00	519905.932	0.00	European Sales Manager
+274	Stephen	Jiang	NULL	NULL	0.00	0.00	559697.5639	0.00	North American Sales Manager
+280	Pamela	Ansman-Wolfe	1	250000.00	5000.00	0.01	1352577.1325	1927059.178	Sales Representative
+286	Lynn	Tsoflias	9	250000.00	5650.00	0.018	1421810.9242	2278548.9776	Sales Representative
+278	Garrett	Vargas	6	250000.00	500.00	0.01	1453719.4653	1620276.8966	Sales Representative
+283	David	Campbell	1	250000.00	3500.00	0.012	1573012.9383	1371635.3158	Sales Representative
+284	Tete	Mensa-Annan	1	300000.00	3900.00	0.019	1576562.1966	0.00	Sales Representative
+288	Rachel	Valdez	8	250000.00	75.00	0.018	1827066.7118	1307949.7917	Sales Representative
+279	Tsvi	Reiter	5	300000.00	6700.00	0.01	2315185.611	1849640.9418	Sales Representative
+281	Shu	Ito	4	250000.00	3550.00	0.01	2458535.6169	2073505.9999	Sales Representative
+282	José	Saraiva	6	250000.00	5000.00	0.015	2604540.7172	2038234.6549	Sales Representative
+290	Ranjit	Varkey Chudukatil	7	250000.00	985.00	0.016	3121616.3202	2396539.7601	Sales Representative
+277	Jillian	Carson	3	250000.00	2500.00	0.015	3189418.3662	1997186.2037	Sales Representative
+275	Michael	Blythe	2	300000.00	4100.00	0.012	3763178.1787	1750406.4785	Sales Representative
+289	Jae	Pak	10	250000.00	5150.00	0.02	4116871.2277	1635823.3967	Sales Representative
+276	Linda	Mitchell	4	250000.00	2000.00	0.015	4251368.5497	1439156.0291	Sales Representative
+
+NOT USING ALAIS YET BECAUSE I NEED TO FOCUS ON TECHNIAL MOVEMENTS
