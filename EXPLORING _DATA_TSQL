@@ -154,3 +154,49 @@ BusinessEntityID	Title	FirstName	MiddleName	LastName	Suffix	JobTitle	Department	
 --SALE DATA MAY NOT BE THE RIGHT DATA TO FOR THE GOAL I AM LOOKING FOR I MAY HAVE TO SWTICH--
 
 THE ONLY DATA CONTACT BASE I FOUND WAS FOR SALES SO FAR--- 
+
+MADE TABLE FROM QUERY TRANFORMERING OVER TABLE TO EXCEL THAN TABLEAU--
+/****** Script for SelectTopNRows command from SSMS  ******/
+SELECT TOP (1000) [BusinessEntityID]
+      ,[First Name]
+      ,[Last Name]
+      ,[Territory ID]
+      ,[Territory Name]
+      ,[Sales Quota]
+      ,[Bonus]
+      ,[Commission %]
+      ,[SalesYTD_Round]
+      ,[SalesLastYear_Round]
+      ,[Growth_YTD]
+      ,[Job Title]
+      ,[Region Name]
+  FROM [AdventureWorks2016_EXT].[dbo].[SALES_DASHBOARD_FULL_DATA]
+
+AFTER SOME CLEANING I WANT TO FILE IN THE BLANK DATA/NULL BY USING INSERT COMMANDS :-]
+
+/****** SEARCHING FOR MANAGER THEY HAVE BLANKS WHICH IS FINE I CAN FILL IN REGION ATTB  ******/
+/*
+SELECT [BusinessEntityID]
+      ,[First Name]
+      ,[Last Name]
+      ,[Territory ID]
+      ,[Territory Name]
+      ,[Sales Quota]
+      ,[Bonus]
+      ,[Commission %]
+      ,[SalesYTD_Round]
+      ,[SalesLastYear_Round]
+      ,[Growth_YTD]
+      ,[Job Title]
+      ,[Region Name]
+  FROM [AdventureWorks2016_EXT].[dbo].[SALES_DASHBOARD_FULL_DATA]
+  WHERE [Job Title] LIKE '%M%';*/
+
+  --I NEEDED AN UPDATE STATEMENT AS WELL I WILL BE USING THIS QUERY THREE TIMES--
+  UPDATE SALES_DASHBOARD_FULL_DATA
+  SET [Region Name] = 'Europe'
+  WHERE BusinessEntityID = 287;
+
+  SELECT *
+  FROM SALES_DASHBOARD_FULL_DATA;
+  --data looks go move to tableau --
